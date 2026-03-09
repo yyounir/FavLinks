@@ -35,18 +35,18 @@ function Form(props) {
     
 
     return(
-      <form onSubmit={handleSubmit} class="bg-white dark:bg-gray-800 rounded-lg px-6 py-8 ring shadow-xl ring-gray-900/5">
+      <form onSubmit={handleSubmit} className="container">
         
         <h1 class="testClass" className="font-bold">Submit your fav links!</h1>
         <br />
         <label for="linkName">Type a name: </label>
-        <input type="text" id="linkName" name="linkName" onChange={handleNameChange} value={name} class="bg-gray-200 rounded-lg pt-2 pb-2 pl-1 mb-1 dark:bg-gray-600"/> 
+        <input type="text" id="linkName" name="linkName" onChange={handleNameChange} value={name} className="inputText"/> 
         <br />
         <label for="linkURL">Type the URL: </label>
-        <input type="text" id="linkURL" name="linkURL" onChange={handleURLChange} value={URL} class="bg-gray-200 rounded-lg pt-2 pb-2 pl-1 dark:bg-gray-600"/>
+        <input type="text" id="linkURL" name="linkURL" onChange={handleURLChange} value={URL} className="inputText"/>
         
         <br/><br/>
-        <button type="submit" disabled={name === "" || URL === ""} class="cursor-pointer bg-green-500 font-bold hover:bg-green-600 hover:px-6 text-black px-4 py-2 rounded-lg hover:cursor:pointer hover:duration-300 duration-300">Submit</button>
+        <button type="submit" disabled={name === "" || URL === ""}>Submit</button>
         <br/>
       </form>
     )
