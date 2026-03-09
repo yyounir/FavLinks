@@ -2,7 +2,7 @@ function Table(props) {
 
   let rows = props.links.map((data) => {
     return(
-      <a href={"https://" + data.URL}><div  class="w-fill text-left text-white bg-white dark:bg-gray-900 rounded-lg px-6 py-4 my-2 ring shadow-xl ring-gray-900/5">
+      <a href={"https://" + data.URL} target="_blank"><div  class="w-fill text-left text-white bg-white dark:bg-gray-900 rounded-lg px-6 py-4 my-2 ring shadow-xl ring-gray-900/5">
         {data.name}
         <br/>
         {data.URL}
