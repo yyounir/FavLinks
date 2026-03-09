@@ -72,7 +72,7 @@ button:focus-visible {
 
 @layer base {
   button {
-    @apply disabled:bg-gray-400 disabled:cursor-default cursor-pointer bg-green-500 font-bold hover:bg-green-600 hover:px-6 text-black px-4 py-2 rounded-lg hover:duration-300 duration-300;
+    @apply disabled:bg-gray-400 disabled:cursor-default disabled:hover:px-4 cursor-pointer bg-green-500 font-bold hover:bg-green-600 hover:px-6 text-black px-4 py-2 rounded-lg hover:duration-300 duration-300;
   }
 
   
