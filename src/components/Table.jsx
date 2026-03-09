@@ -2,16 +2,16 @@ function Table(props) {
 
   let rows = props.links.map((data) => {
     return(
-      <div  class="w-fill text-left bg-white dark:bg-gray-900 rounded-lg px-6 py-4 my-2 ring shadow-xl ring-gray-900/5">
-        <a href={"https://" + data.URL}>{data.name}
+      <a href={"https://" + data.URL}><div  class="w-fill text-left text-white bg-white dark:bg-gray-900 rounded-lg px-6 py-4 my-2 ring shadow-xl ring-gray-900/5">
+        {data.name}
         <br/>
-        {data.URL}</a>
+        {data.URL}
 
         {/* <tr>
           <td>{data.name}</td>
           <td>{data.URL}</td>
         </tr> */}
-      </div>
+      </div></a>
     )
   })
 
