@@ -2,7 +2,7 @@
 
 import "./App.css"
 
-import Table from "./components/table"
+import Table from "./components/Table"
 import Form from "./components/Form"
 
 import {useState} from "react";
@@ -13,6 +13,12 @@ function App() { // Capitalize component names
 
   const [favLinks, setFavLinks] = useState([])
 
+  const removeLink = (index) => {
+    // console.log("Cats will rule the world someday >:D");
+    // favLinks[index].pop;
+    setFavLinks(favLinks.filter((_, i) => i !== index));
+  }
+
   let handleNewSubmission = (data) => {
     setFavLinks([...favLinks, data])
   }
@@ -22,7 +28,7 @@ function App() { // Capitalize component names
     <div>
 
       <Form onNewSubmit = {handleNewSubmission} />
-      <Table links={favLinks} />
+      <Table links={favLinks} removeLink={removeLink} />
       
     </div>
   )
