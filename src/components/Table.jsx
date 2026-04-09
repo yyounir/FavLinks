@@ -24,7 +24,7 @@ function Table(props) {
       <button className='bg-red-500 text-white' onClick={() => props.removeLink(index)}><FontAwesomeIcon icon={faXmark} className='mr-1'/>Delete</button>
       </div>
     )
-  })
+}
 
   return(
     // <table>
@@ -43,8 +43,12 @@ function Table(props) {
     </div>
     
 
-    
-  )
+    return(
+        <table>
+            <TableHeader />
+            <TableBody linkData={props.data} removeLink={handleRemove}/>
+        </table>
+    )
 }
 
 export default Table
