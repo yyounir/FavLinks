@@ -1,4 +1,4 @@
-import LinkContainer from "./components/LinkContainer"
+// Form, Table, some js to push data from the form to the table
 
 import "./App.css"
 
