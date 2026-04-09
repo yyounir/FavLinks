@@ -1,37 +1,48 @@
-function Table(props) {
-
-  let rows = props.links.map((data) => {
+function TableHeader() {
+    // responsible for rendering the head of our table with appropriate columns
     return(
-      <a href={"https://" + data.URL} target="_blank"><div  class="w-fill text-left text-white bg-white dark:bg-gray-900 rounded-lg px-6 py-4 my-2 ring shadow-xl ring-gray-900/5">
-        {data.name}
-        <br/>
-        {data.URL}
-
-        {/* <tr>
-          <td>{data.name}</td>
-          <td>{data.URL}</td>
-        </tr> */}
-      </div></a>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>URL</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
     )
-  })
+}
 
-  return(
-    // <table>
-    //   <thead>
-    //     <tr>
-    //       <th>Link Name</th>
-    //       <th>Link URL</th>
-    //     </tr>
-    //   </thead>
-    //   <tbody>
-    //     {rows}
-    //   </tbody>
-    // </table>
-    <div class="w-fill text-left bg-white dark:bg-gray-800 rounded-lg px-6 py-4 my-2 ring shadow-xl ring-gray-900/5">{rows}</div>
-    
+function TableBody(props) {
+    // boilerplate table body functional component
+    // we use Array.map to create table rows from LinkData passed via props
+    const row = props.linkData.map
+    ((row, index) => {
+        return(
+            <tr key={index}>
+                <td>
+                    {row.name}
+                </td>
+                <td>
+                    <a href={row.URL}>{row.URL}</a>
+                </td>
+                <td>
+                    <button onClick={() => props.removeLink(index)}>Delete</button>
+                </td>
+            </tr>
+        )
+    })
+    return <tbody>{row}</tbody>;
+}
+function Table(props){
+    const handleRemove = (index) => {
+        console.log("button clicked", index)
+    }
 
-    
-  )
+    return(
+        <table>
+            <TableHeader />
+            <TableBody linkData={props.data} removeLink={handleRemove}/>
+        </table>
+    )
 }
 
 export default Table
