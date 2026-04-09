@@ -1,41 +1,47 @@
-function TableHeader() {
-    // responsible for rendering the head of our table with appropriate columns
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark, faTrash, faCoffee, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+
+function Table(props) {
+
+  let handleRemoveChange = (event) => {
+    props.removeLink(event.target.value)
+  }
+
+  let rows = props.links.map((data, index) => {
+    
     return(
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>URL</th>
-                <th>Remove</th>
-            </tr>
-        </thead>
+      <div className="w-fill text-left text-black dark:text-white bg-white dark:bg-gray-900 rounded-lg px-6 py-4 my-2 ring shadow-xl ring-gray-900/5"><a href={"https://" + data.URL} target="_blank" >
+        {data.name}
+        <br/>
+        {data.URL}
+        <br/><br/>
+        {/* <tr>
+          <td>{data.name}</td>
+          <td>{data.URL}</td>
+        </tr> */}
+        
+      </a>
+      <button className='bg-red-500 text-white' onClick={() => props.removeLink(index)}><FontAwesomeIcon icon={faXmark} className='mr-1'/>Delete</button>
+      </div>
     )
 }
 
-function TableBody(props) {
-    // boilerplate table body functional component
-    // we use Array.map to create table rows from LinkData passed via props
-    const row = props.linkData.map
-    ((row, index) => {
-        return(
-            <tr key={index}>
-                <td>
-                    {row.name}
-                </td>
-                <td>
-                    <a href={row.URL}>{row.URL}</a>
-                </td>
-                <td>
-                    <button onClick={() => props.removeLink(index)}>Delete</button>
-                </td>
-            </tr>
-        )
-    })
-    return <tbody>{row}</tbody>;
-}
-function Table(props){
-    const handleRemove = (index) => {
-        console.log("button clicked", index)
-    }
+  return(
+    // <table>
+    //   <thead>
+    //     <tr>
+    //       <th>Link Name</th>
+    //       <th>Link URL</th>
+    //     </tr>
+    //   </thead>
+    //   <tbody>
+    //     {rows}
+    //   </tbody>
+    // </table>
+    <div class="w-fill text-left bg-white dark:bg-gray-800 rounded-lg px-6 py-4 my-2 ring shadow-xl ring-gray-900/5">
+      {rows}
+    </div>
+    
 
     return(
         <table>
